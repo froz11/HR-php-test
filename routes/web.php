@@ -14,3 +14,14 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::resource('orders', 'OrderController', ['only' => [
+    'index', 'update', 'edit'
+]]);
+Route::get('orders-group', 'OrderController@indexGroup')->name('groupOrders');
+Route::resource('products', 'ProductController', ['only' => [
+    'index', 'update'
+]]);
+
+
+Route::get('temperature', 'TemperatureController@index')->name('temper');
